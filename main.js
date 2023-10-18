@@ -1,18 +1,37 @@
 const mainDisplay = document.querySelector('#main-display')
 const subDisplay = document.querySelector('#sub-display')
+const allButtons = document.querySelectorAll('.all-button')
 const numberAndOperatorButtons = document.querySelectorAll('.row .button')
 const cButton = document.querySelector('.button-c')
 const ceButton = document.querySelector('.button-ce')
 const equalButton = document.querySelector('.button-equal')
-const operators = ['+', '-', '*', '/']
+const operators = ['+', '-', '*', '/', 'operators']
+const operands = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', 'operands']
+const specialButtons = ['CE', 'C', 'specialButtons']
+const equal = ['=', 'equal']
+const buttonCategories = [operators, operands, specialButtons, equal]
+const colors = {
+    lightMode: {
+        operators: '#9465df',
+        operands: '#f7fa5e',
+        specialButtons: '#fdb044',
+        equal: '#ff7be9'
+    },
+    darkMode: {}
+}
+
+let colorMode = 'light'
 let userInput = '';
+
+
+addUserFeedback()
 
 simulateKeyPress()
 
 equalButton.addEventListener('click', () => {
     mainDisplay.innerHTML = subDisplay.innerHTML
     userInput = subDisplay.innerHTML
-    subDisplay.innerHTML = ''
+    subDisplay.innerHTML = '0'
 })
 
 cButton.addEventListener('click', () => {
@@ -25,8 +44,6 @@ ceButton.addEventListener('click', () => {
     mainDisplay.innerHTML = ''
     subDisplay.innerHTML = ''
 })
-
-
 
 for (let button of numberAndOperatorButtons) {
     button.addEventListener('click', (event) => {
@@ -128,4 +145,19 @@ function simulateKeyPress() {
                 break;
         }
     })
+}
+
+function addUserFeedback() {
+    for (let button of allButtons) {
+        button.addEventListener('click', (event) => {
+            event.target.style.backgroundColor = 'red'
+            setTimeout(function() {
+                for (let category of buttonCategories) {
+                    if (category.includes(event.target.innerHTML)) {
+                        event.target.style.backgroundColor = colors['lightMode'][category[category.length - 1]]
+                    }
+                }
+            }, 200);
+        })
+    }
 }
