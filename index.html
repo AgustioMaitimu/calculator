@@ -7,45 +7,50 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div id="calc-body">
-        <div id="calc-display">
-            <div id="main-display">
+<body>          
+    <div id="calc-body" class="background">
+        <div id="calc-display" class="background all-display">
+            <div id="main-display" class="background all-display">
                 
             </div>
-            <div id="sub-display">
+            <div id="sub-display" class="background all-display">
                 
             </div>
         </div>
-        <div id="calc-buttons">
-            <div class="row-special row-1">
-                <button class="button button-ce all-button">CE</button>
-                <button class="button button-c all-button">C</button>
+        <div class='instruction'>*Keyboard input supported</div>
+        <div id="calc-buttons" class="background">
+            <div class="row-special row-1 rows background">
+                <button class="button button-ce all-button button-specials">CE (Space)</button>
+                <button class="button button-c all-button button-specials">C (Backspace)</button>
             </div>
-            <div class="row row-2">
+            <div class="row row-2 rows background">
                 <button class="button button-7 all-button button-mains">7</button>
                 <button class="button button-8 all-button button-mains">8</button>
                 <button class="button button-9 all-button button-mains">9</button>
                 <button class="button button-divide button-operator all-button">/</button>
             </div>
-            <div class="row row-3">
+            <div class="row row-3 rows background">
                 <button class="button button-4 all-button button-mains">4</button>
                 <button class="button button-5 all-button button-mains">5</button>
                 <button class="button button-6 all-button button-mains">6</button>
                 <button class="button button-multiply button-small button-operator all-button">*</button>
             </div>
-            <div class="row row-4">
+            <div class="row row-4 rows background">
                 <button class="button button-1 all-button button-mains">1</button>
                 <button class="button button-2 all-button button-mains">2</button>
                 <button class="button button-3 all-button button-mains">3</button>
                 <button class="button button-minus button-small button-operator all-button">-</button>
             </div>
-            <div class="row row-5">
+            <div class="row row-5 rows background">
                 <button class="button button-dot button-small all-button button-mains">.</button>
                 <button class="button button-0 all-button button-mains">0</button>
                 <button class="button-equal button-small all-button">=</button>
                 <button class="button button-plus button-small button-operator all-button">+</button>
             </div>
+        </div>
+        <div class="bottom-part">
+            <div class="branding">Kalculator By Tio</div>
+            <button class="colormode-change">Colormode (~)</button>
         </div>
     </div>
     <script src="main.js"></script>
